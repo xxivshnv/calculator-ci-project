@@ -41,7 +41,7 @@ jobs:
         languages: java
 
     - name: Build Maven
-      run: mvn clean compile
+      run: mvn clean package
 
     - name: Run CodeQL
       uses: github/codeql-action/analyze@v3
