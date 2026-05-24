@@ -41,9 +41,7 @@ jobs:
         languages: java
 
     - name: Build Maven
-      run:
-          mvn clean
-          mvn install -DskipTests
+      run: mvn clean install -DskipTests
 
     - name: Run CodeQL
       uses: github/codeql-action/analyze@v3
