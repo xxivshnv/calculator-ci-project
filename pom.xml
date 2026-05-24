@@ -30,12 +30,6 @@
 
     <build>
 
-        <!-- Source folder -->
-        <sourceDirectory>src</sourceDirectory>
-
-        <!-- Test folder -->
-        <testSourceDirectory>src/simplecalculatortest</testSourceDirectory>
-
         <plugins>
 
             <plugin>
