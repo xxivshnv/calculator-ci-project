@@ -40,8 +40,8 @@ jobs:
       with:
         languages: java
 
-    - name: Build Maven
-      run: mvn clean install -DskipTests
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
 
     - name: Run CodeQL
       uses: github/codeql-action/analyze@v3
