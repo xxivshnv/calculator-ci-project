@@ -10,9 +10,8 @@ on:
       - master
 
 jobs:
-  analyze:
 
-    name: Analyze Java
+  analyze:
 
     runs-on: ubuntu-latest
 
@@ -21,27 +20,21 @@ jobs:
       contents: read
       security-events: write
 
-    strategy:
-      fail-fast: false
-
     steps:
 
-    - name: Checkout Repo
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-    - name: Setup Java
-      uses: actions/setup-java@v4
+    - uses: actions/setup-java@v4
       with:
         distribution: temurin
         java-version: 17
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
+    - uses: github/codeql-action/init@v3
       with:
-        languages: java-kotlin
+        languages: java
+        build-mode: manual
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
+    - name: Build
+      run: mvn clean package
 
-    - name: Run CodeQL
-      uses: github/codeql-action/analyze@v3
+    - uses: github/codeql-action/analyze@v3
